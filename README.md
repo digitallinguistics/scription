@@ -143,7 +143,3 @@ What would this utterance mean if the verb were perfect?
 [Pat Hall]:
 [YAML]:
 [YAML header]:
-
-# Appendix
-
-This appendix contains the list of backslash codes that may be used when the user constructs an interlinear gloss schema.
