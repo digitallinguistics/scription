@@ -2,7 +2,13 @@
 
 This document specifies a simple text format for representing linguistic texts as interlinear glossed examples. This format, known as `scription` (a term coined by [Patrick J. Hall][Pat Hall] (University of California, Santa Barbara)), makes it easy to quickly enter data. It is easily read by humans, and easily converted to other formats used in documentary linguistics.
 
+[![DOI](https://zenodo.org/badge/175884660.svg)][Zenodo]
+
 [View the example scription file.][example]
+
+Cite this format using the following model:
+
+> Hieber, Daniel W. 2019. digitallinguistics/scription. DOI:[10.5281/zenodo.2595548][Zenodo]
 
 ## File Extension / Media Type
 
@@ -146,3 +152,4 @@ What would this utterance mean if the verb were perfect?
 [Leipzig]:  https://www.eva.mpg.de/lingua/resources/glossing-rules.php
 [Pat Hall]: https://github.com/amundo
 [YAML]:     https://yaml.org/start.html
+[Zenodo]:   https://zenodo.org/badge/latestdoi/175884660
