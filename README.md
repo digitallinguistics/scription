@@ -10,7 +10,7 @@ Scription files should be treated as plain text files (`text/plain`) and given t
 
 ## Header
 
-Each scription file may begin with a [YAML header][YAML header], beginning and ending with three dashes (`---`) on their own line. Thus every scription file with a header must begin with a single line containing the characters `---`, without any other content, spaces, or new lines occurring before the dashes.
+Each scription file may begin with a header containing metadata about the text, beginning and ending with three dashes (`---`) on their own line. Thus every scription file with a header must begin with a single line containing the characters `---`, without any other content, spaces, or new lines occurring before the dashes.
 
 The header content should consist of metadata about the text, in [YAML format][YAML]. The properties included in the header must use the field names recommended for linguistic texts specified by the [Data Format for Digital Linguistics][DaFoDiL], with the exception that the `utterances` property must NOT be included. Some examples of attributes that users might include are the `title`, `abbreviation`, and `dateRecorded` properties.
 
@@ -137,9 +137,8 @@ KB-swa:  Sentensi hii ni kuhusu bwana yule.
 What would this utterance mean if the verb were perfect?
 ```
 
-[DaFoDiL]: (text spec)
-[example]:
-[Leipzig]:
-[Pat Hall]:
-[YAML]:
-[YAML header]:
+[DaFoDiL]:  https://spec.digitallinguistics.io/schemas/Text.html
+[example]:  https://github.com/digitallinguistics/scription/blob/master/example.txt
+[Leipzig]:  https://www.eva.mpg.de/lingua/resources/glossing-rules.php
+[Pat Hall]: https://github.com/amundo
+[YAML]:     https://yaml.org/start.html
