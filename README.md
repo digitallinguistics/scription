@@ -10,11 +10,15 @@ Scription files should be treated as plain text files (`text/plain`) and given t
 
 ## Header
 
-Each scription file may begin with a header containing metadata about the text, beginning and ending with three dashes (`---`) on their own line. Thus every scription file with a header must begin with a single line containing the characters `---`, without any other content, spaces, or new lines occurring before the dashes.
+Each scription file may begin with a header containing metadata about the text, between two triple dashes (`---`). For example:
+
+```
+---
+title: How the world began
+---
+```
 
 The header content should consist of metadata about the text, in [YAML format][YAML]. The properties included in the header must use the field names recommended for linguistic texts specified by the [Data Format for Digital Linguistics][DaFoDiL], with the exception that the `utterances` property must NOT be included. Some examples of attributes that users might include are the `title`, `abbreviation`, and `dateRecorded` properties.
-
-The header must end with three dashes (`---`) on their own line.
 
 If present, the header may not be empty. At a minimum, a `title` property is required.
 
