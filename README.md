@@ -1,8 +1,11 @@
-# Scription
+# [Scription][GitHub]
+
+[![GitHub release](https://img.shields.io/github/release/digitallinguistics/scription.svg)][releases]
+[![DOI](https://zenodo.org/badge/175884660.svg)][Zenodo]
+[![GitHub](https://img.shields.io/github/license/digitallinguistics/scription.svg)][license]
+[![GitHub stars](https://img.shields.io/github/stars/digitallinguistics/scription.svg?style=social)][GitHub]
 
 This document specifies a simple text format for representing linguistic texts as interlinear glossed examples. This format, known as `scription` (a term coined by [Patrick J. Hall][Pat Hall] (University of California, Santa Barbara)), makes it easy to quickly enter data. It is easily read by humans, and easily converted to other formats used in documentary linguistics.
-
-[![DOI](https://zenodo.org/badge/175884660.svg)][Zenodo]
 
 [View the example scription file.][example]
 
@@ -149,7 +152,10 @@ What would this utterance mean if the verb were perfect?
 
 [DaFoDiL]:  https://spec.digitallinguistics.io/schemas/Text.html
 [example]:  https://github.com/digitallinguistics/scription/blob/master/example.txt
+[GitHub]:   https://github.com/digitallinguistics/scription
 [Leipzig]:  https://www.eva.mpg.de/lingua/resources/glossing-rules.php
+[license]:  https://github.com/digitallinguistics/scription/blob/master/LICENSE.md
 [Pat Hall]: https://github.com/amundo
+[releases]: https://github.com/digitallinguistics/scription/releases
 [YAML]:     https://yaml.org/start.html
 [Zenodo]:   https://zenodo.org/badge/latestdoi/175884660
