@@ -9,6 +9,8 @@ This document specifies a simple text format for representing linguistic texts a
 
 [View the example scription file.][example]
 
+You may also be interested in the [`scription2dlx` JavaScript library][scription2dlx], which converts scription files to the Data Format for Digital Linguistics (DaFoDiL).
+
 Cite this format using the following model:
 
 > Hieber, Daniel W. 2019. digitallinguistics/scription. DOI:[10.5281/zenodo.2595548][Zenodo]
@@ -154,12 +156,13 @@ KB-swa:  Sentensi hii ni kuhusu bwana yule.
 What would this utterance mean if the verb were perfect?
 ```
 
-[DaFoDiL]:  https://spec.digitallinguistics.io/schemas/Text.html
-[example]:  https://github.com/digitallinguistics/scription/blob/master/example.txt
-[GitHub]:   https://github.com/digitallinguistics/scription
-[Leipzig]:  https://www.eva.mpg.de/lingua/resources/glossing-rules.php
-[license]:  https://github.com/digitallinguistics/scription/blob/master/LICENSE.md
-[Pat Hall]: https://github.com/amundo
-[releases]: https://github.com/digitallinguistics/scription/releases
-[YAML]:     https://yaml.org/start.html
-[Zenodo]:   https://zenodo.org/badge/latestdoi/175884660
+[DaFoDiL]:       https://spec.digitallinguistics.io/schemas/Text.html
+[example]:       https://github.com/digitallinguistics/scription/blob/master/example.txt
+[GitHub]:        https://github.com/digitallinguistics/scription
+[Leipzig]:       https://www.eva.mpg.de/lingua/resources/glossing-rules.php
+[license]:       https://github.com/digitallinguistics/scription/blob/master/LICENSE.md
+[Pat Hall]:      https://github.com/amundo
+[releases]:      https://github.com/digitallinguistics/scription/releases
+[scription2dlx]: https://developer.digitallinguistics.io/scription2dlx/
+[YAML]:          https://yaml.org/start.html
+[Zenodo]:        https://zenodo.org/badge/latestdoi/175884660
