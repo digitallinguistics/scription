@@ -35,9 +35,10 @@ If present, the header may not be empty. At a minimum, a `title` property is req
 
 ## Interlinear Gloss Schema
 
-An optional *interlinear gloss schema* may be included after the header and one or more line breaks. This schema tells parsers what each line in your subsequent interlinear glossed utterances represents. If no schema is provided, parsers should default to the following:
+An optional *interlinear gloss schema* may be included after the header and one or more line breaks. This schema tells parsers what each line in your subsequent interlinear glossed utterances represents. If no schema is provided, parsers should default to the following for 3-line utterances:
 
 ```
+\schema
 \morph
 \gl
 \tln
