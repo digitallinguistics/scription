@@ -41,7 +41,11 @@ An optional *interlinear gloss schema* may be included after the header and one 
 \tln
 ```
 
-The above schema tells parsers that each interlinear glossed example in the text will have 3 lines unless otherwise specified, and that those three lines will be the morpheme breakdown for the utterance, the glosses for the utterance, and the translation for the utterance, in that order. The complete list of supported backslash codes is listed in the [Lines](#lines) section. Editors and parsers may support additional backslash codes, but other editors and parsers are not required to support them. Custom backslash codes must only contain ASCII characters; parsers which encounter invalid backslash codes should throw an error. The behavior of parsers when they encounter an unknown backslash code is undefined; parsers may attempt to process the data or not. Each backslash code may only appear once in a schema (different orthographies or languages for the same code count as distinct backslash codes).
+The above schema tells parsers that each interlinear glossed example in the text will have 3 lines unless otherwise specified, and that those three lines will be the morpheme breakdown for the utterance (`\morph`), the glosses for the utterance (`\gl`), and the translation for the utterance (`\tln`), in that order.
+
+If only 2 lines are provided for an utterance, parsers should assume that those two lines are the transcription (`\txn`) and the translation (`\tln`) (**not** the morpheme breakdown and translation).
+
+The complete list of supported backslash codes is listed in the [Lines](#lines) section. Editors and parsers may support additional backslash codes, but other editors and parsers are not required to support them. Custom backslash codes must only contain ASCII characters; parsers which encounter invalid backslash codes should throw an error. The behavior of parsers when they encounter an unknown backslash code is undefined; parsers may attempt to process the data or not. Each backslash code may only appear once in a schema (different orthographies or languages for the same code count as distinct backslash codes).
 
 Each line in the schema must consist of a backslash `\`, followed immediately by the code indicating the type of line (e.g. `gl`, `txn`), and optionally a hyphen followed by the abbreviation of a writing system or language (e.g. `-spa`, `-modern`), depending on the code. Abbreviations may only contain ASCII characters and numbers. No other content is permitted on the line. Some examples of backslash codes are below:
 
