@@ -35,7 +35,7 @@ If present, the header may not be empty. At a minimum, a `title` property is req
 
 ## Interlinear Gloss Schema
 
-An optional *interlinear gloss schema* may be included after the header and one or more line breaks. This schema tells parsers what each line in your subsequent interlinear glossed utterances represents. If no schema is provided, parsers should default to the following for 3-line utterances:
+An optional *interlinear gloss schema* may be included after the header and one or more line breaks. This schema tells parsers what each line in your subsequent interlinear glossed utterances represents. If no schema is provided, utterances with 3 lines should be assumed to follow this schema:
 
 ```
 \schema
@@ -46,7 +46,7 @@ An optional *interlinear gloss schema* may be included after the header and one 
 
 The above schema tells parsers that each interlinear glossed example in the text will have 3 lines unless otherwise specified, and that those three lines will be the morpheme breakdown for the utterance (`\morph`), the glosses for the utterance (`\gl`), and the translation for the utterance (`\tln`), in that order.
 
-If only 2 lines are provided for an utterance, parsers should assume that those two lines are the transcription (`\txn`) and the translation (`\tln`) (**not** the morpheme breakdown and translation).
+If no schema is provided, and an utterance has only 2 lines, those two lines should be assumed to be the transcription (`\txn`) and the translation (`\tln`) lines respectively (**not** the morpheme breakdown and translation).
 
 The complete list of supported backslash codes is listed in the [Lines](#lines) section. Editors and parsers may support additional backslash codes, but other editors and parsers are not required to support them. Custom backslash codes must only contain ASCII characters; parsers which encounter invalid backslash codes should throw an error. The behavior of parsers when they encounter an unknown backslash code is undefined; parsers may attempt to process the data or not. Each backslash code may only appear once in a schema (different orthographies or languages for the same code count as distinct backslash codes).
 
