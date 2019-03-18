@@ -1,4 +1,4 @@
-# [Scription][GitHub]
+# Scription
 
 [![GitHub release](https://img.shields.io/github/release/digitallinguistics/scription.svg)][releases]
 [![DOI](https://zenodo.org/badge/175884660.svg)][Zenodo]
