@@ -217,7 +217,7 @@ KB (swa):  Sentensi hii ni kuhusu bwana yule.
 What would this utterance mean if the verb were perfect?
 ```
 
-[DaFoDiL]:       https://spec.digitallinguistics.io/schemas/Text.html
+[DaFoDiL]:       https://format.digitallinguistics.io/schemas/Text.html
 [example]:       https://github.com/digitallinguistics/scription/blob/master/example.txt
 [GitHub]:        https://github.com/digitallinguistics/scription
 [Leipzig]:       https://www.eva.mpg.de/lingua/resources/glossing-rules.php
