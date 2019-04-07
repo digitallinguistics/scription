@@ -170,7 +170,7 @@ A transcript of this utterance, including things like prosodic markup, overlap, 
 
 A phonemic transcription of the utterance. Punctuation and capitalization should be avoided in this line. This line should not be broken into morphemes. (Morpho)phonological sound changes should be represented in this line. In other words, this line serves as a phonemic transcription of the utterance as the speaker actually pronounced it. Do not include phonemic slashes (`/ /`) in this line.
 
-This line may be used with multiple orthographies. For example, a language which has a practical writing system may have both `\txn-practical` and `\txn-ipa`, to represent each utterance in both the practical orthography and in IPA.
+This line may be used with multiple orthographies. For example, a language which has a practical writing system may have both `\txn-practical` and `\txn-ipa`, to represent each utterance in both the practical orthography and in IPA. It is recommended but not required that orthography abbreviations be valid [ISO language tags][language-tag] (for example, `\txn-x-practical`). However, sometimes this is impractical or unreadable.
 
 ### Phonetic Transcription: `\phon`
 
@@ -180,7 +180,7 @@ A phonetic transcription of the utterance. This transcription must be in IPA; it
 
 This line shows the individual morphemes in an utterance, separated by hyphens, equal signs, or other symbols recognized as valid glossing symbols by the [Leipzig Glossing Rules][Leipzig]. Words may be separated by one or more white spaces or tabs (useful for aligning words vertically for readability). It is recommended that if this line is present, the glosses line be present also. This line must contain the same number of words as the glosses line (`\gl`), if present. Each word within the utterance must also contain the same number of morphemes as the corresponding word in the glosses line.
 
-The morphemes line may be represented in more than one orthography. For example, in a language that has a practical writing system, a user might include both a `\m-practical` and `\m-ipa` line, for the practical orthography and IPA respectively.
+The morphemes line may be represented in more than one orthography. For example, in a language that has a practical writing system, a user might include both a `\m-practical` and `\m-ipa` line, for the practical orthography and IPA respectively. It is recommended but not required that orthography abbreviations be valid [ISO language tags][language-tag] (for example, `\m-x-practical`). However, sometimes this is impractical or unreadable.
 
 Data should be entered in this line using regular hyphens (U+2010) rather than non-breaking hyphens (U+2011), for ease of entry. Tools may replace regular hyphens with non-breaking hyphens for display purposes, but must not alter the original data by replacing the original, regular hyphens. Non-breaking hyphens are not permitted on this line.
 
@@ -192,15 +192,15 @@ Grammatical glosses should be written in CAPS. Lexical glosses should avoid capi
 
 Data should be entered in this line using regular hyphens (U+2010) rather than non-breaking hyphens (U+2011), for ease of entry. Tools may replace regular hyphens with non-breaking hyphens for display purposes, but must not alter the original data by replacing the original, regular hyphens. Non-breaking hyphens are not permitted on this line.
 
-The glosses line may be represented in multiple languages. For example, an utterance with glosses in both English and Spanish might have the lines `\gl-en` and `\gl-es`.
+The glosses line may be represented in multiple languages. For example, an utterance with glosses in both English and Spanish might have the lines `\gl-en` and `\gl-es`. Language abbreviations must be valid [ISO language tags][language-tag].
 
 ### Literal Translation: `\lit`
 
-The literal translation for this utterance. Do not include brackets (`[ ]`) or quotes (`‘ ’`) around the data for this line, unless using quotes for reported speech. This line may be represented in multiple languages. For example, an utterance with a translation in both Spanish and English might have the lines `\tln-spa` and `\tln-eng`.
+The literal translation for this utterance. Do not include brackets (`[ ]`) or quotes (`‘ ’`) around the data for this line, unless using quotes for reported speech. This line may be represented in multiple languages. For example, an utterance with a translation in both Spanish and English might have the lines `\tln-spa` and `\tln-eng`. Language abbreviations must be valid [ISO language tags][language-tag].
 
 ### Free Translation: `\tln`
 
-The free translation for this utterance. Do not include brackets (`[ ]`) or quotes (`‘ ’`) around the data for this line, unless using quotes for reported speech. This line may be represented in multiple languages. For example, an utterance with a translation in both Spanish and English might have the lines `\lit-spa` and `\lit-eng`.
+The free translation for this utterance. Do not include brackets (`[ ]`) or quotes (`‘ ’`) around the data for this line, unless using quotes for reported speech. This line may be represented in multiple languages. For example, an utterance with a translation in both Spanish and English might have the lines `\lit-spa` and `\lit-eng`. Language abbreviations must be valid [ISO language tags][language-tag].
 
 ### Note: `\n`
 
