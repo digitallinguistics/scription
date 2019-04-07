@@ -196,11 +196,11 @@ The glosses line may be represented in multiple languages. For example, an utter
 
 ### Literal Translation: `\lit`
 
-The literal translation for this utterance. Do not include brackets (`[ ]`) or quotes (`‘ ’`) around the data for this line. This line may be represented in multiple languages. For example, an utterance with a translation in both Spanish and English might have the lines `\tln-spa` and `\tln-eng`.
+The literal translation for this utterance. Do not include brackets (`[ ]`) or quotes (`‘ ’`) around the data for this line, unless using quotes for reported speech. This line may be represented in multiple languages. For example, an utterance with a translation in both Spanish and English might have the lines `\tln-spa` and `\tln-eng`.
 
 ### Free Translation: `\tln`
 
-The free translation for this utterance. Do not include brackets (`[ ]`) or quotes (`‘ ’`) around the data for this line. This line may be represented in multiple languages. For example, an utterance with a translation in both Spanish and English might have the lines `\lit-spa` and `\lit-eng`.
+The free translation for this utterance. Do not include brackets (`[ ]`) or quotes (`‘ ’`) around the data for this line, unless using quotes for reported speech. This line may be represented in multiple languages. For example, an utterance with a translation in both Spanish and English might have the lines `\lit-spa` and `\lit-eng`.
 
 ### Note: `\n`
 
