@@ -156,7 +156,7 @@ If an utterance contains an extra line (that is, one more line than specified in
 
 ## Lines
 
-Lines within an interlinear gloss must be formatted in different ways, depending on the line type. This section provides guidelines on formatting each line of an interlinear glossed utterance. The sections are in their recommended order for an interlinear gloss.
+This section provides guidelines on formatting each line of an interlinear glossed utterance. Lines will have different formatting requirements depending on their type.
 
 ### Speaker: `\sp`
 
