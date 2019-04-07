@@ -15,6 +15,23 @@ Cite this format using the following model:
 
 > Hieber, Daniel W. 2019. digitallinguistics/scription. DOI:[10.5281/zenodo.2595548][Zenodo]
 
+## Contents
+
+* [File Extension / Media Type](#file-extension--media-type)
+* [Header](#header)
+* [Interlinear Gloss Schema](#interlinear-gloss-schema)
+* [Utterances](#utterances)
+* [Lines](#lines)
+  - [Speaker (`\sp`)](#speaker-sp)
+  - [Transcript (`\trs`)](#transcript-trs)
+  - [Phonemic Transcription (`\txn`)](#phonemic-transcription-txn)
+  - [Phonetic Transcription (`\phon`)](#phonetic-transcription-phon)
+  - [Morphemes (`\m`)](#morphemes-m)
+  - [Glosses (`\gl`)](#glosses-gl)
+  - [Literal Translation (`\lit`)](#literal-translation-lit)
+  - [Free Translation (`\tln`)](#free-translation-tln)
+  - [Note (`\n`)](#note-n)
+
 ## File Extension / Media Type
 
 Scription files should be treated as plain text files (`text/plain`) and given the `.txt` extension. Using other extensions such as `.scription` or `.text` is not recommended.
