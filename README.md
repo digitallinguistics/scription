@@ -192,6 +192,8 @@ Grammatical glosses should be written in CAPS. Lexical glosses should avoid capi
 
 Data should be entered in this line using regular hyphens (U+2010) rather than non-breaking hyphens (U+2011), for ease of entry. Tools may replace regular hyphens with non-breaking hyphens for display purposes, but must not alter the original data by replacing the original, regular hyphens. Non-breaking hyphens are not permitted on this line.
 
+The glosses line may be represented in multiple languages. For example, an utterance with glosses in both English and Spanish might have the lines `\gl-en` and `\gl-es`.
+
 ### Literal Translation: `\lit`
 
 The literal translation for this utterance. Do not include brackets (`[ ]`) or quotes (`‘ ’`) around the data for this line. This line may be represented in multiple languages. For example, an utterance with a translation in both Spanish and English might have the lines `\tln-spa` and `\tln-eng`.
