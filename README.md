@@ -206,14 +206,14 @@ The free translation for this utterance. Do not include brackets (`[ ]`) or quot
 
 A note about this utterance. Each note line has the following structure:
 
-`{source}-{language/orthography}: {note text}`
+`{source} ({language}): {note text}`
 
-The `{source}` is the source of the note (usually the initials of a speaker, or a bibliographic reference), and is optional but strongly recommended. The source must contain only ASCII letters and numbers. The `{language/orthography}` is also optional. If absent, parsers should assume that the language is English (`eng`). If present, the source must be present as well. The language/orthography must contain only ASCII letters and numbers. If only the source is present, no hyphen is required. The colon `(:)` may be followed by one or more tabs or spaces. The colon may be omitted if both the source and language are absent. Some examples of notes are below:
+The `{source}` is the source of the note (usually the initials of a speaker, or a bibliographic reference), and is optional but strongly recommended. The `{language}` is also optional. If absent, parsers should assume that the language is English (`en`). The language must be a valid [ISO language tag][language-tag], and must be surrounded by parentheses. The source and the language must be separated by one or more spaces or tabs. The colon `(:)` may be followed by one or more spaces or tabs. The colon may be omitted if both the source and language are absent. Some examples of notes are below:
 
 ```
-DWH-eng: Is this utterance past tense or present tense?
-MM:      I think this is plural.
-KB-swa:  Sentensi hii ni kuhusu bwana yule.
+DWH (en): Is this utterance past tense or present tense?
+MM:        I think this is plural.
+KB (swa):  Sentensi hii ni kuhusu bwana yule.
 What would this utterance mean if the verb were perfect?
 ```
 
