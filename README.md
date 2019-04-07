@@ -35,38 +35,50 @@ If present, the header may not be empty. At a minimum, a `title` property is req
 
 ## Interlinear Gloss Schema
 
-An optional *interlinear gloss schema* may be included after the header and one or more line breaks. This schema tells parsers what each line in your subsequent interlinear glossed utterances represents. If no schema is provided, utterances with 3 lines should be assumed to follow this schema:
+Each text has an *interlinear gloss schema* that tells readers or parsers what each line in an utterance represents. The interlinear gloss schema is always inferred from the first utterance in the text. Subsequent utterances are then assumed to follow the same schema unless otherwise specified.
+
+Users can specify an interlinear gloss schema using backslash codes at the beginning of each line in an utterance, followed by one or more spaces or tabs, and then the data for that line. Consider the following example text:
 
 ```
-\schema
+\txn   ninakupenda
+\morph ni-na-ku-pend-a
+\gl    1SG.SUBJ-PRES-2SG.OBJ-love-IND
+\tln   I love you
+
+ninaenda
+ni-na-end-a
+1SG-PRES-go-IND
+I am going
+```
+
+This text has 2 utterances, separated by a blank line. The lines in the first utterance are preceded by backslash codes indicating the function of each line. This schema tells readers and parsers that the lines in this utterance are a transcription (`\txn`), followed by a morpheme breakdown (`\morph`) and glosses (`\gl`), and finally a translation (`\tln`). The second utterance is then assumed to follow the same schema, so it does not need backslash codes.
+
+By default, an utterance with 3 lines is assumed to follow this schema:
+
+```
 \morph
 \gl
 \tln
 ```
 
-The above schema tells parsers that each interlinear glossed example in the text will have 3 lines unless otherwise specified, and that those three lines will be the morpheme breakdown for the utterance (`\morph`), the glosses for the utterance (`\gl`), and the translation for the utterance (`\tln`), in that order.
+By default, an utterance with 2 lines is assumed to follow this schema:
 
-If no schema is provided, and an utterance has only 2 lines, those two lines should be assumed to be the transcription (`\txn`) and the translation (`\tln`) lines respectively (**not** the morpheme breakdown and translation).
+```
+\txn
+\tln
+```
 
 The complete list of supported backslash codes is listed in the [Lines](#lines) section. Each backslash code may only appear once in a schema (different orthographies or languages for the same code count as distinct backslash codes). Editors and parsers may support additional backslash codes, but other editors and parsers are not required to support them. Custom backslash codes must only contain ASCII characters; parsers which encounter invalid backslash codes should throw an error. When parsers encounter an undefined backslash code, however, they should not throw an error; parsers may either ignore the line, or attempt to process the data.
 
-Each line in the schema must consist of a backslash `\`, followed immediately by the code indicating the type of line (e.g. `gl`, `txn`), and optionally a hyphen followed by the abbreviation of a writing system or language (e.g. `-spa`, `-modern`), depending on the code. Abbreviations may only contain ASCII characters and numbers. No other content is permitted on the line. Some examples of backslash codes are below:
+Each backslash code must consist of a backslash `\`, followed immediately by the code indicating the type of line (e.g. `gl`, `txn`), and optionally a hyphen followed by an abbreviation or [ISO language tag][language-tag], depending on the code. Abbreviations may only contain ASCII characters and numbers. Some examples of backslash codes are below:
 
   - `\gl` - The glosses line
   - `\txn-practical` - The transcription line, not broken down into morphemes, in the practical orthography for the language
   - `\tln-spa` - The translation line, in Spanish
 
-## Utterances
+If one line in an utterance includes a backslash code, all the other lines in that utterance must have one as well. Parsers should throw an error if they encounter an utterance where only some of the lines begin with backslash codes.
 
-Following the interlinear gloss schema and one or more line breaks is the collection of utterances in the text, each represented as an interlinear glossed utterance. The collection of utterances may be empty.
-
-Each interlinear glossed utterance is a set of lines of text, and each utterance is separated from other utterances by one or more blank lines. The lines within an interlinear glossed utterance must not be separated by blank lines.
-
-Parsers should assume that each line in an interlinear glossed utterance corresponds to the same number line in the interlinear gloss schema. For example, a scription file using the default schema (see above) should treat the first line in an interlinear gloss as the morpheme break, the second as the glosses, and the third as the translation.
-
-If an utterance contains an extra line (that is, one more line than specified in the interlinear gloss schema), that line should be treated as a note line (`\n`). The behavior of parsers for any additional lines is undefined; parsers may choose to attempt to process that data or not.
-
-By default, lines within an utterance do not need to be preceded by backslash codes (e.g. `\morph`, `\gl`, etc.). However, if an individual utterance follows a different schema than the one specified in the interlinear gloss schema, the user can indicate which line is which by including the backslash code at the beginning of the line, followed by one or more spaces or tabs, and then the data for that line. This is most useful when a specific utterance requires an extra line in the interlinear gloss, for whatever reason. If one line in an utterance includes a backslash code, all the other lines in that utterance must have one as well. Parsers should throw an error if they encounter an utterance where only some of the lines begin with backslash codes.
+If an individual utterance in a text follows a different schema than the one specified in the first utterance, the user must indicate the function of each line by including the backslash code at the beginning of the line. This is most useful when a specific utterance requires an extra line in the interlinear gloss, for whatever reason.
 
 As an example, consider a scription file using the default interlinear gloss schema. Most utterances will look something like this:
 
@@ -94,7 +106,36 @@ Note that the following format is also valid:
 \tln he did it
 ```
 
+This will only affect the interlinear gloss schema for this specific utterance. All other utterances in the text will be assumed to follow the same schema as the interlinear gloss schema in the first utterance.
+
+If the first utterance in a text happens to follow a different interlinear gloss schema than the rest of the utterances in the text, users can simply provide a schema with no data, like so:
+
+```
+\txn
+\morph
+\gl
+\tln
+```
+
+In this case, parsers should use this utterance only for the purpose of inferring the interlinear gloss schema; they should not treat it as data.
+
+## Utterances
+
+Following the header and one or more line breaks is the collection of utterances in the text, each represented as an interlinear glossed utterance. The collection of utterances may be empty.
+
+Each interlinear glossed utterance is a set of lines of text, and each utterance is separated from other utterances by one or more blank lines. The lines within an interlinear glossed utterance must not be separated by blank lines. To indicate that there is no data for a line, include that line's backslash code, and leave the rest of the line blank, like so:
+
+```
+\txn hujambo
+\gl
+\tln hello
+```
+
 Each utterance may only contain one line of each type and orthography/language, with the exception of the note line (`\n`). Users may include multiple note lines, but each must be preceded by the `\n` backslash code.
+
+The first utterance in a text is always used to infer the interlinear gloss schema for the text. Parsers should assume that each line in an interlinear glossed utterance corresponds to the same number line in the interlinear gloss schema. For example, a scription file using the default schema (see above) should treat the first line in an interlinear gloss as the morpheme break, the second as the glosses, and the third as the translation.
+
+If an utterance contains an extra line (that is, one more line than specified in the interlinear gloss schema), that line should be treated as a note line (`\n`). The behavior of parsers for any additional lines is undefined; parsers may choose to attempt to process that data or not.
 
 ## Lines
 
@@ -161,6 +202,7 @@ What would this utterance mean if the verb were perfect?
 [example]:       https://github.com/digitallinguistics/scription/blob/master/example.txt
 [GitHub]:        https://github.com/digitallinguistics/scription
 [Leipzig]:       https://www.eva.mpg.de/lingua/resources/glossing-rules.php
+[language-tag]:  https://www.w3.org/International/articles/language-tags/
 [license]:       https://github.com/digitallinguistics/scription/blob/master/LICENSE.md
 [Pat Hall]:      https://github.com/amundo
 [releases]:      https://github.com/digitallinguistics/scription/releases
