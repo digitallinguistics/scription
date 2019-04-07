@@ -160,7 +160,7 @@ This section provides guidelines on formatting each line of an interlinear gloss
 
 ### Speaker: `\sp`
 
-This line consists of an abbreviation for the person who spoke the utterance, usually their initials. The speaker line may not be in multiple languages or writing systems.
+This line consists of an abbreviation for the person who spoke the utterance, usually their initials. The speaker line may not be in multiple languages or writing systems. It may contain only the letters `a-z`, `A-Z`, and numbers `0-9`. No spaces are allowed. If you need to provide more details about a speaker, you can do so in the metadata header at the beginning of the text.
 
 ### Transcript: `\trs`
 
