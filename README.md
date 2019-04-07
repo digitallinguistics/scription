@@ -211,7 +211,7 @@ A note about this utterance. Each note line has the following structure:
 The `{source}` is the source of the note (usually the initials of a speaker, or a bibliographic reference), and is optional but strongly recommended. The `{language}` is also optional. If absent, parsers should assume that the language is English (`en`). The language must be a valid [ISO language tag][language-tag], and must be surrounded by parentheses. The source and the language must be separated by one or more spaces or tabs. The colon `(:)` may be followed by one or more spaces or tabs. The colon may be omitted if both the source and language are absent. Some examples of notes are below:
 
 ```
-DWH (en): Is this utterance past tense or present tense?
+DWH (en):  Is this utterance past tense or present tense?
 MM:        I think this is plural.
 KB (swa):  Sentensi hii ni kuhusu bwana yule.
 What would this utterance mean if the verb were perfect?
