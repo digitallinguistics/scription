@@ -1,12 +1,9 @@
 ---
 abbreviation: A1
-title: How the Indian came (first telling)
+title:        How the Indian came (first telling)
 ---
-\trs
-\tln
-
-wetkšˊ husˊ na·nča·kamankšˊ wetkˊ hi hokmiʔiˊ.
-He left his brothers.
+\trs wetkšˊ husˊ na·nča·kamankšˊ wetkˊ hi hokmiʔiˊ.
+\tln He left his brothers.
 
 \trs  kunˊ ču·gšˊ ču·gšˊ, še·nink hupˊ hi ničwiʔiˊ.
 \txn  kun ču·gš ču·gš še·nink hup hi ničwiʔi
