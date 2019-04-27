@@ -158,6 +158,15 @@ If an utterance contains an extra line (that is, one more line than specified in
 
 This section provides guidelines on formatting each line of an interlinear glossed utterance. Lines will have different formatting requirements depending on their type.
 
+Words on a line may be grouped together using square brackets (`[ ]`). Multiple words that are grouped using square brackets must be treated as one word for the purpose of aligning items in an interlinear gloss. In the following example, the first and last name of a person are grouped together into a single unit, and given the gloss `NAME`.
+
+```
+\trs Qix kapx [John Smith].
+\txn qix kapx [John Smith]
+\gl  1SG name NAME
+\tln My name is John Smith.
+```
+
 ### Speaker: `\sp`
 
 This line consists of an abbreviation for the person who spoke the utterance, usually their initials. The speaker line may not be in multiple languages or writing systems. It may contain only the letters `a-z`, `A-Z`, and numbers `0-9`. No spaces are allowed. If you need to provide more details about a speaker, you can do so in the metadata header at the beginning of the text.
