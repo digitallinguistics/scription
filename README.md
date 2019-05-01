@@ -85,7 +85,7 @@ By default, an utterance with 2 lines is assumed to follow this schema:
 \tln
 ```
 
-The complete list of supported backslash codes is listed in the [Lines](#lines) section. Each backslash code may only appear once in a schema (different orthographies or languages for the same code count as distinct backslash codes). Editors and parsers may support additional backslash codes, but other editors and parsers are not required to support them. Parsers which encounter invalid backslash codes should throw an error. When parsers encounter an undefined backslash code, however, they should not throw an error; parsers may either ignore the line, or attempt to process the data.
+The complete list of supported backslash codes is listed in the [Lines](#lines) section. If a backslash code appears more than once in a schema, each instance must have a language or orthography specified. (Thus an utterance with both `\tln-en` and `\tln-es` would be valid, but an utterance with `\tln` and `\tln-es` would not be valid.) Editors and parsers may support additional backslash codes, but other editors and parsers are not required to support them. Parsers which encounter invalid backslash codes should throw an error. When parsers encounter an undefined backslash code, however, they should not throw an error; parsers may either ignore the line, or attempt to process the data.
 
 Each backslash code must consist of a backslash `\`, followed immediately by the code indicating the type of line (e.g. `gl`, `txn`), and optionally a hyphen followed by an abbreviation or [ISO language tag][language-tag], depending on the line. Backslash codes may only contain basic alphanumeric characters (A-Z, a-z; no diacritics) and numbers (0-9). Some examples of backslash codes are below:
 
