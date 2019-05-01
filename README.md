@@ -58,7 +58,7 @@ Users can specify an interlinear gloss schema using backslash codes at the begin
 
 ```
 \txn   ninakupenda
-\morph ni-na-ku-pend-a
+\m     ni-na-ku-pend-a
 \gl    1SG.SUBJ-PRES-2SG.OBJ-love-IND
 \tln   I love you
 
@@ -68,12 +68,12 @@ ni-na-end-a
 I am going
 ```
 
-This text has 2 utterances, separated by a blank line. The lines in the first utterance are preceded by backslash codes indicating the function of each line. This schema tells readers and parsers that the lines in this utterance are a transcription (`\txn`), followed by a morpheme breakdown (`\morph`) and glosses (`\gl`), and finally a translation (`\tln`). The second utterance is then assumed to follow the same schema, so it does not need backslash codes.
+This text has 2 utterances, separated by a blank line. The lines in the first utterance are preceded by backslash codes indicating the function of each line. This schema tells readers and parsers that the lines in this utterance are a transcription (`\txn`), followed by a morpheme breakdown (`\m`) and glosses (`\gl`), and finally a translation (`\tln`). The second utterance is then assumed to follow the same schema, so it does not need backslash codes.
 
 By default, an utterance with 3 lines is assumed to follow this schema:
 
 ```
-\morph
+\m
 \gl
 \tln
 ```
@@ -129,7 +129,7 @@ If the first utterance in a text happens to follow a different interlinear gloss
 
 ```
 \txn
-\morph
+\m
 \gl
 \tln
 ```
