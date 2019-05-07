@@ -5,11 +5,24 @@
 [![GitHub](https://img.shields.io/github/license/digitallinguistics/scription.svg)][license]
 [![GitHub stars](https://img.shields.io/github/stars/digitallinguistics/scription.svg?style=social)][GitHub]
 
-This document specifies a simple text format for representing linguistic texts as interlinear glossed examples. This format, known as `scription` (a term coined by [Patrick J. Hall][Pat Hall] (University of California, Santa Barbara)), makes it easy to quickly enter data. It is easily read by humans, and easily converted to other formats used in documentary linguistics.
+This document specifies a simple text format for representing linguistic texts as interlinear glossed examples. This format, known as _scription_ (a term coined by [Patrick J. Hall][Pat Hall] (University of California, Santa Barbara)), makes it easy to quickly enter data. It is easily read by humans, and easily converted to other formats used in documentary linguistics.
+
+At its simplest, a scription file is just a basic interlinear gloss. Below is a valid scription file containing a single utterance in Chitimacha:
+
+```
+waxdungu qasi
+waxt-qungu qasi
+day-one    man
+one day a man
+```
+
+However, the scription format supports much more complicated interlinear glosses, as well as the ability to specify metadata about the text. Click the example link below to view a slightly more complex scription file.
 
 [View the example scription file.][example]
 
-You may also be interested in the [`scription2dlx` JavaScript library][scription2dlx], which converts scription files to the Data Format for Digital Linguistics (DaFoDiL).
+The complete specification for formatting valid scription files is given below.
+
+_**Note:** You may also be interested in the [`scription2dlx` JavaScript library][scription2dlx], which converts scription files to the Data Format for Digital Linguistics (DaFoDiL)._
 
 Cite this format using the following model:
 
