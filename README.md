@@ -68,9 +68,16 @@ ni-na-end-a
 I am going
 ```
 
-This text has 2 utterances, separated by a blank line. The lines in the first utterance are preceded by backslash codes indicating the function of each line. This schema tells readers and parsers that the lines in this utterance are a transcription (`\txn`), followed by a morpheme breakdown (`\m`) and glosses (`\gl`), and finally a translation (`\tln`). The second utterance is then assumed to follow the same schema, so it does not need backslash codes.
+This text has 2 utterances, separated by a blank line. The lines in the first utterance are preceded by backslash codes indicating the function of each line. This schema tells readers and parsers that the lines in this utterance are a phonemic transcription of the utterance (`\txn`), followed by a morphemic analysis (`\m`) and glosses (`\gl`), and finally a free translation (`\tln`). The second utterance is then assumed to follow the same schema, so it does not need backslash codes.
 
-By default, an utterance with 3 lines is assumed to follow this schema:
+By default, an utterance with only 2 lines is assumed to follow this schema:
+
+```
+\txn
+\tln
+```
+
+An utterance with 3 lines is assumed to follow this schema:
 
 ```
 \m
@@ -78,19 +85,21 @@ By default, an utterance with 3 lines is assumed to follow this schema:
 \tln
 ```
 
-By default, an utterance with 2 lines is assumed to follow this schema:
+An utterance with 4 lines is assumed to follow this schema:
 
 ```
 \txn
+\m
+\gl
 \tln
 ```
 
-The complete list of supported backslash codes is listed in the [Lines](#lines) section. If a backslash code appears more than once in a schema, each instance must have a language or orthography specified. (Thus an utterance with both `\tln-en` and `\tln-es` would be valid, but an utterance with `\tln` and `\tln-es` would not be valid.) Editors and parsers may support additional backslash codes, but other editors and parsers are not required to support them. Parsers which encounter invalid backslash codes should throw an error. When parsers encounter an undefined backslash code, however, they should not throw an error; parsers may either ignore the line, or attempt to process the data.
+The complete list of supported backslash codes is listed in the [Lines](#lines) section. If a backslash code appears more than once in a schema, each instance must have a language or orthography specified. (For example, an utterance with both `\tln-en` and `\tln-es` would be valid, but an utterance with `\tln` and `\tln-es` would not be valid.) Editors and parsers may support additional backslash codes, but other editors and parsers are not required to support them. Parsers which encounter invalid backslash codes should throw an error. When parsers encounter an undefined backslash code, however, they should not throw an error; parsers may either ignore the line, or attempt to process the data.
 
 Each backslash code must consist of a backslash `\`, followed immediately by the code indicating the type of line (e.g. `gl`, `txn`), and optionally a hyphen followed by an abbreviation or [ISO language tag][language-tag], depending on the line. Backslash codes may only contain basic alphanumeric characters (A-Z, a-z; no diacritics) and numbers (0-9). Some examples of backslash codes are below:
 
   - `\gl` - The glosses line
-  - `\txn-practical` - The transcription line, not broken down into morphemes, in the practical orthography for the language
+  - `\txn-practical` - The phonemic transcription line, in the practical orthography for the language
   - `\tln-es` - The translation line, in Spanish
 
 If one line in an utterance includes a backslash code, all the other lines in that utterance must have one as well. Parsers should throw an error if they encounter an utterance where only some of the lines begin with backslash codes.
@@ -123,7 +132,7 @@ Note that the following format is also valid:
 \tln he did it
 ```
 
-This will only affect the interlinear gloss schema for this specific utterance. All other utterances in the text will be assumed to follow the same schema as the interlinear gloss schema in the first utterance.
+This will only affect the interlinear gloss schema for this specific utterance. All other utterances in the text will be assumed to continue following the same schema as the interlinear gloss schema in the first utterance.
 
 If the first utterance in a text happens to follow a different interlinear gloss schema than the rest of the utterances in the text, users can simply provide a schema with no data, like so:
 
