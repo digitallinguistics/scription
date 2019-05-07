@@ -28,6 +28,7 @@ Cite this format using the following model:
   - [Phonetic Transcription (`\phon`)](#phonetic-transcription-phon)
   - [Morphemic Analysis (`\m`)](#morphemic-analysis-m)
   - [Glosses (`\gl`)](#glosses-gl)
+  - [Literal Word Translation (`\wlt`)](#literal-word-translation-wlt)
   - [Literal Translation (`\lit`)](#literal-translation-lit)
   - [Free Translation (`\tln`)](#free-translation-tln)
   - [Note (`\n`)](#note-n)
@@ -196,7 +197,7 @@ A phonetic transcription of the utterance. This transcription must be in IPA; it
 
 ### Morphemic Analysis: `\m`
 
-This line shows the individual morphemes in an utterance, separated by hyphens, equal signs, or other symbols recognized as valid glossing symbols by the [Leipzig Glossing Rules][Leipzig]. Words may be separated by one or more white spaces or tabs (useful for aligning words vertically for readability). If this line is present, the glosses line (`gl`) must also be present. This line must contain the same number of words as the glosses line. Each word within the utterance must also contain the same number of morphemes as the corresponding word in the glosses line.
+This line shows the individual morphemes in an utterance, separated by hyphens, equal signs, or other symbols recognized as valid glossing symbols by the [Leipzig Glossing Rules][Leipzig]. Words may be separated by one or more white spaces or tabs (useful for aligning words vertically for readability). If this line is present, the glosses line (`gl`) must also be present. This line must contain the same number of words as the glosses line and the literal word translation line (if present). Each word within the utterance must also contain the same number of morphemes as the corresponding word in the glosses line.
 
 The morphemes line may be represented in more than one orthography. For example, in a language that has a practical writing system, a user might include both a `\m-practical` and `\m-ipa` line, for the practical orthography and IPA respectively. It is recommended but not required that orthography abbreviations be valid [ISO language tags][language-tag] (for example, `\m-x-practical`). However, sometimes this is impractical or unreadable.
 
@@ -204,7 +205,7 @@ Data should be entered in this line using regular hyphens (U+2010) rather than n
 
 ### Glosses: `\gl`
 
-This line shows the glosses for each morpheme in the morphemic analysis (`\m`) line, separated by hyphens, equal signs, or other symbols recognized as valid glossing symbols by the [Leipzig Glossing Rules][Leipzig]. Words may be separated by one or more white spaces or tabs (useful for aligning words vertically for readability). If this line is present, the morphemic analysis line must also be present. This line must contain the same number of words as the morphemic analysis line. Each word within the utterance must also contain the same number of glosses as the corresponding word in the morphemic analysis line.
+This line shows the glosses for each morpheme in the morphemic analysis (`\m`) line, separated by hyphens, equal signs, or other symbols recognized as valid glossing symbols by the [Leipzig Glossing Rules][Leipzig]. Words may be separated by one or more white spaces or tabs (useful for aligning words vertically for readability). If this line is present, the morphemic analysis line must also be present. This line must contain the same number of words as the morphemic analysis line and the literal word translation line (if present). Each word within the utterance must also contain the same number of glosses as the corresponding word in the morphemic analysis line.
 
 Grammatical glosses should be written in CAPS. Lexical glosses should avoid capitalization. Personal names should be glossed `NAME` or with their literal meaning. Affixes whose meaning is unknown or uncertain may be glossed `??`, although other glosses are acceptable (for example, `aff1`, `aff2`, etc.).
 
@@ -237,6 +238,17 @@ Infixes are also supported, using the angle brackets convention specified in the
 b<um>ili
 <FOC>buy
 buy
+```
+
+### Literal Word Translation: `\wlt`
+
+A word-by-word literal translation of the utterance. Literal translations of each word must not contain white space; words within each translation may be separated by periods, hyphens, underscores, or other characters. This line must have the same number of words as the morphemic analysis and glosses lines. An example utterance with literal word translations is shown below.
+
+```
+\m   naakxte-m-puy-na
+\gl  write-PLACT-PAST.IPFV-3PL
+\wlt they.usually.write.with.it
+\tln a pen/pencil
 ```
 
 ### Literal Translation: `\lit`
