@@ -22,6 +22,7 @@ Cite this format using the following model:
 * [Interlinear Gloss Schema](#interlinear-gloss-schema)
 * [Utterances](#utterances)
 * [Lines](#lines)
+  - [Utterance Metadata (`#`)](#utterance-metadata-)
   - [Speaker (`\sp`)](#speaker-sp)
   - [Transcript (`\trs`)](#transcript-trs)
   - [Phonemic Transcription (Utterance) (`\txn`)](#phonemic-transcription-txn)
@@ -178,6 +179,18 @@ Words on a line may be grouped together using square brackets (`[ ]`). Multiple 
 \tln My name is John Smith.
 ```
 
+### Utterance Metadata: `#`
+
+Each utterance may be preceded by a metadata line, beginning with a hash (`#`). This can be used to indicate the name of the language of that utterance, the language family, or other notes or metadata about the utterance. This is most useful when the scription text contains a collection of unrelated examples in different languages. An example of an utterance with a metadata line is shown below.
+
+```
+# Chitimacha (isolate; Louisiana)
+waxdungu qasi
+one day a man
+```
+
+The format of the data contained within this line is unspecified. The behavior of parsers with respect to this line is undefined, except that parsers should not throw an error if this line is encountered. It is recommended that parsers ignore this line by default.
+
 ### Speaker: `\sp`
 
 This line consists of an abbreviation for the person who spoke the utterance, usually their initials. The speaker line may not be in multiple languages or writing systems. It may contain only the letters `a-z`, `A-Z`, and numbers `0-9`. No spaces are allowed. If you need to provide more details about a speaker, you can do so in the metadata header at the beginning of the text.
@@ -220,15 +233,15 @@ The glosses line may be represented in multiple languages. For example, an utter
 
 If the same gloss appears twice within a word, it should be treated as a discontinuous morpheme (ex: a circumfix or transfix). The following examples in illustrate this use:
 
-**Lakota**
 ```
+# Lakota
 na-wíčha-wa-xʔu̧
 hear-3PL.UND-1SG.ACT-hear
 I hear them
 ```
 
-**Darfur Arabic**
 ```
+# Darfur Arabic
 t-u-r-u-g
 way-PL-way-PL-way
 ways
@@ -238,8 +251,8 @@ To avoid this behavior, you can change the gloss of one of the morphemes (ex: `P
 
 Infixes are also supported, using the angle brackets convention specified in the [Leipzig Glossing Rules][Leipzig]:
 
-**Tagalog**
 ```
+# Tagalog
 b<um>ili
 <FOC>buy
 buy
