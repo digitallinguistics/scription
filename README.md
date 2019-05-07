@@ -196,7 +196,7 @@ A phonetic transcription of the utterance. This transcription must be in IPA; it
 
 ### Morphemic Analysis: `\m`
 
-This line shows the individual morphemes in an utterance, separated by hyphens, equal signs, or other symbols recognized as valid glossing symbols by the [Leipzig Glossing Rules][Leipzig]. Words may be separated by one or more white spaces or tabs (useful for aligning words vertically for readability). It is recommended that if this line is present, the glosses line be present also. This line must contain the same number of words as the glosses line (`\gl`), if present. Each word within the utterance must also contain the same number of morphemes as the corresponding word in the glosses line.
+This line shows the individual morphemes in an utterance, separated by hyphens, equal signs, or other symbols recognized as valid glossing symbols by the [Leipzig Glossing Rules][Leipzig]. Words may be separated by one or more white spaces or tabs (useful for aligning words vertically for readability). If this line is present, the glosses line (`gl`) must also be present. This line must contain the same number of words as the glosses line. Each word within the utterance must also contain the same number of morphemes as the corresponding word in the glosses line.
 
 The morphemes line may be represented in more than one orthography. For example, in a language that has a practical writing system, a user might include both a `\m-practical` and `\m-ipa` line, for the practical orthography and IPA respectively. It is recommended but not required that orthography abbreviations be valid [ISO language tags][language-tag] (for example, `\m-x-practical`). However, sometimes this is impractical or unreadable.
 
