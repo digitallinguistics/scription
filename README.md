@@ -266,17 +266,17 @@ The free translation for this utterance. Do not include brackets (`[ ]`) or quot
 
 ### Note: `\n`
 
-A note about this utterance. Each note line has the following structure:
+A note about this utterance. Note lines may be in multiple languages (ex: `\n-en` and `\n-es`). If the language is absent, parsers should assume that the language is English (`en`). The language tag, if present, must be a valid [ISO language tag][language-tag].
 
-`{source} ({language}): {note text}`
+The source of the note may also be indicated at the beginning of the note text, followed by a colon (`:`). This should be the initials of the person who was the source of the note, and may contain only basic Latin characters (A-Z, a-z).
 
-The `{source}` is the source of the note (usually the initials of a speaker, or a bibliographic reference), and is optional but strongly recommended. The `{language}` is also optional. If absent, parsers should assume that the language is English (`en`). The language must be a valid [ISO language tag][language-tag], and must be surrounded by parentheses. The source and the language must be separated by one or more spaces or tabs. The colon `(:)` may be followed by one or more spaces or tabs. The colon may be omitted if both the source and language are absent. Some examples of notes are below:
+Some examples of note lines are below.
 
 ```
-DWH (en):  Is this utterance past tense or present tense?
-MM:        I think this is plural.
-KB (swa):  Sentensi hii ni kuhusu bwana yule.
 What would this utterance mean if the verb were perfect?
+DWH: Is this utterance past tense or present tense?
+\n MM: I think this is plural.
+\n-swa Sentensi hii ni kuhusu bwana yule.
 ```
 
 [DaFoDiL]:       https://format.digitallinguistics.io/schemas/Text.html
