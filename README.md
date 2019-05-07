@@ -200,7 +200,7 @@ This line shows the individual morphemes in an utterance, separated by hyphens, 
 
 The morphemes line may be represented in more than one orthography. For example, in a language that has a practical writing system, a user might include both a `\m-practical` and `\m-ipa` line, for the practical orthography and IPA respectively. It is recommended but not required that orthography abbreviations be valid [ISO language tags][language-tag] (for example, `\m-x-practical`). However, sometimes this is impractical or unreadable.
 
-Data should be entered in this line using regular hyphens (U+2010) rather than non-breaking hyphens (U+2011), for ease of entry. Tools may replace regular hyphens with non-breaking hyphens for display purposes, but must not alter the original data by replacing the original, regular hyphens. Non-breaking hyphens are not permitted on this line.
+Data should be entered in this line using regular hyphens (U+2010) rather than non-breaking hyphens (U+2011), for ease of entry. Tools may replace regular hyphens with non-breaking hyphens for display purposes, but must not alter the original data by replacing the original, regular hyphens. If non-breaking hyphens are included in the data for this line, they must be treated as word characters rather than as morpheme separators or punctuation.
 
 ### Glosses: `\gl`
 
