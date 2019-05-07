@@ -230,6 +230,15 @@ ways
 
 To avoid this behavior, you can change the gloss of one of the morphemes (ex: `PL^1` and `PL^2`).
 
+Infixes are also supported, using the angle brackets convention specified in the [Leipzig Glossing Rules][Leipzig]:
+
+**Tagalog**
+```
+b<um>ili
+<FOC>buy
+buy
+```
+
 ### Literal Translation: `\lit`
 
 The literal translation for this utterance. Do not include brackets (`[ ]`) or quotes (`‘ ’`) around the data for this line, unless using quotes for reported speech. This line may be represented in multiple languages. For example, an utterance with a translation in both Spanish and English might have the lines `\tln-spa` and `\tln-eng`. Language abbreviations must be valid [ISO language tags][language-tag].
