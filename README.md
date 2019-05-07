@@ -24,8 +24,9 @@ Cite this format using the following model:
 * [Lines](#lines)
   - [Speaker (`\sp`)](#speaker-sp)
   - [Transcript (`\trs`)](#transcript-trs)
-  - [Phonemic Transcription (`\txn`)](#phonemic-transcription-txn)
-  - [Phonetic Transcription (`\phon`)](#phonetic-transcription-phon)
+  - [Phonemic Transcription (Utterance) (`\txn`)](#phonemic-transcription-txn)
+  - [Phonetic Transcription (Utterance) (`\phon`)](#phonetic-transcription-phon)
+  - [Phonemic Transcription (Word) (`\w`)](#word-transcription-w)
   - [Morphemic Analysis (`\m`)](#morphemic-analysis-m)
   - [Glosses (`\gl`)](#glosses-gl)
   - [Literal Word Translation (`\wlt`)](#literal-word-translation-wlt)
@@ -187,13 +188,17 @@ A transcript of this utterance, including things like prosodic markup, overlap, 
 
 ### Phonemic Transcription: `\txn`
 
-A phonemic transcription of the utterance. Punctuation and capitalization should be avoided in this line. This line should not be broken into morphemes. (Morpho)phonological sound changes should be represented in this line. In other words, this line serves as a phonemic transcription of the utterance as the speaker actually pronounced it. Do not include phonemic slashes (`/ /`) in this line.
+A phonemic transcription of the utterance. Punctuation and capitalization should be avoided in this line. This line should not be broken into morphemes, and should not contain extra white space to align words (use the `\w` line for that instead). (Morpho)phonological sound changes should be represented in this line. In other words, this line serves as a phonemic transcription of the utterance as the speaker actually pronounced it. Do not include phonemic slashes (`/ /`) in this line.
 
 This line may be used with multiple orthographies. For example, a language which has a practical writing system may have both `\txn-practical` and `\txn-ipa`, to represent each utterance in both the practical orthography and in IPA. It is recommended but not required that orthography abbreviations be valid [ISO language tags][language-tag] (for example, `\txn-x-practical`). However, sometimes this is impractical or unreadable.
 
 ### Phonetic Transcription: `\phon`
 
 A phonetic transcription of the utterance. This transcription must be in IPA; it may not be used with multiple orthographies. Do not include phonetic brackets (`[ ]`) in this line.
+
+### Word Transcription: `\w`
+
+A phonemic transcription of each word in the utterance. This line may be in multiple orthographies. Words in this line are often separated by additional white space, to vertically align words. Otherwise, this line typically contains the same data as the utterance's phonemic transcription line (`\txn`). This line should not contain morpheme breakdowns (use the `\m` line instead). Do not include phonemic slashes (`/ /`) in this line.
 
 ### Morphemic Analysis: `\m`
 
