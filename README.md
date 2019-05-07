@@ -26,7 +26,7 @@ Cite this format using the following model:
   - [Transcript (`\trs`)](#transcript-trs)
   - [Phonemic Transcription (`\txn`)](#phonemic-transcription-txn)
   - [Phonetic Transcription (`\phon`)](#phonetic-transcription-phon)
-  - [Morphemes (`\m`)](#morphemes-m)
+  - [Morphemic Analysis (`\m`)](#morphemic-analysis-m)
   - [Glosses (`\gl`)](#glosses-gl)
   - [Literal Translation (`\lit`)](#literal-translation-lit)
   - [Free Translation (`\tln`)](#free-translation-tln)
@@ -96,7 +96,7 @@ An utterance with 4 lines is assumed to follow this schema:
 
 The complete list of supported backslash codes is listed in the [Lines](#lines) section. If a backslash code appears more than once in a schema, each instance must have a language or orthography specified. (For example, an utterance with both `\tln-en` and `\tln-es` would be valid, but an utterance with `\tln` and `\tln-es` would not be valid.) Editors and parsers may support additional backslash codes, but other editors and parsers are not required to support them. Parsers which encounter invalid backslash codes should throw an error. When parsers encounter an undefined backslash code, however, they should not throw an error; parsers may either ignore the line, or attempt to process the data.
 
-Each backslash code must consist of a backslash `\`, followed immediately by the code indicating the type of line (e.g. `gl`, `txn`), and optionally a hyphen followed by an abbreviation or [ISO language tag][language-tag], depending on the line. Backslash codes may only contain basic alphanumeric characters (A-Z, a-z; no diacritics) and numbers (0-9). Some examples of backslash codes are below:
+Each backslash code must consist of a backslash `\`, followed immediately by the code indicating the type of line (ex: `gl`, `txn`), and optionally a hyphen followed by an abbreviation or [ISO language tag][language-tag], depending on the line. Backslash codes may only contain basic alphanumeric characters (A-Z, a-z; no diacritics) and numbers (0-9). Some examples of backslash codes are below:
 
   - `\gl` - The glosses line
   - `\txn-practical` - The phonemic transcription line, in the practical orthography for the language
@@ -159,7 +159,7 @@ Each interlinear glossed utterance is a set of lines of text, and each utterance
 
 Each utterance may only contain one line of each type and orthography/language, with the exception of the note line (`\n`). Users may include multiple note lines, but each must be preceded by the `\n` backslash code.
 
-The first utterance in a text is always used to infer the interlinear gloss schema for the text. Parsers should assume that each line in an interlinear glossed utterance corresponds to the same number line in the interlinear gloss schema. For example, a scription file using the default schema (see above) should treat the first line in an interlinear gloss as the morpheme break, the second as the glosses, and the third as the translation.
+The first utterance in a text is always used to infer the interlinear gloss schema for the text. Parsers should assume that each line in an interlinear glossed utterance corresponds to the same number line in the interlinear gloss schema. For example, a scription file using the default schema (see above) should treat the first line in an interlinear gloss as the morphemic analysis, the second as the glosses, and the third as the translation.
 
 If an utterance contains an extra line (that is, one more line than specified in the interlinear gloss schema), that line should be treated as a note line (`\n`). The behavior of parsers for any additional lines is undefined; parsers may choose to attempt to process that data or not.
 
@@ -194,7 +194,7 @@ This line may be used with multiple orthographies. For example, a language which
 
 A phonetic transcription of the utterance. This transcription must be in IPA; it may not be used with multiple orthographies. Do not include phonetic brackets (`[ ]`) in this line.
 
-### Morphemes: `\m`
+### Morphemic Analysis: `\m`
 
 This line shows the individual morphemes in an utterance, separated by hyphens, equal signs, or other symbols recognized as valid glossing symbols by the [Leipzig Glossing Rules][Leipzig]. Words may be separated by one or more white spaces or tabs (useful for aligning words vertically for readability). It is recommended that if this line is present, the glosses line be present also. This line must contain the same number of words as the glosses line (`\gl`), if present. Each word within the utterance must also contain the same number of morphemes as the corresponding word in the glosses line.
 
@@ -204,13 +204,31 @@ Data should be entered in this line using regular hyphens (U+2010) rather than n
 
 ### Glosses: `\gl`
 
-This line shows the glosses for each morpheme in the morphemes (`\m`) line, separated by hyphens, equal signs, or other symbols recognized as valid glossing symbols by the [Leipzig Glossing Rules][Leipzig]. Words may be separated by one or more white spaces or tabs (useful for aligning words vertically for readability). If this line is present, the morphemes line must also be present. This line must contain the same number of words as the morphemes line. Each word within the utterance must also contain the same number of glosses as the corresponding word in the morphemes line.
+This line shows the glosses for each morpheme in the morphemic analysis (`\m`) line, separated by hyphens, equal signs, or other symbols recognized as valid glossing symbols by the [Leipzig Glossing Rules][Leipzig]. Words may be separated by one or more white spaces or tabs (useful for aligning words vertically for readability). If this line is present, the morphemic analysis line must also be present. This line must contain the same number of words as the morphemic analysis line. Each word within the utterance must also contain the same number of glosses as the corresponding word in the morphemic analysis line.
 
 Grammatical glosses should be written in CAPS. Lexical glosses should avoid capitalization. Personal names should be glossed `NAME` or with their literal meaning. Affixes whose meaning is unknown or uncertain may be glossed `??`, although other glosses are acceptable (for example, `aff1`, `aff2`, etc.).
 
 Data should be entered in this line using regular hyphens (U+2010) rather than non-breaking hyphens (U+2011), for ease of entry. Tools may replace regular hyphens with non-breaking hyphens for display purposes, but must not alter the original data by replacing the original, regular hyphens. Non-breaking hyphens are not permitted on this line.
 
 The glosses line may be represented in multiple languages. For example, an utterance with glosses in both English and Spanish might have the lines `\gl-en` and `\gl-es`. Language abbreviations must be valid [ISO language tags][language-tag].
+
+If the same gloss appears twice within a word, it should be treated as a discontinuous morpheme (ex: a circumfix or transfix). The following examples in illustrate this use:
+
+**Lakota**
+```
+na-wíčha-wa-xʔu̧
+hear-3PL.UND-1SG.ACT-hear
+I hear them
+```
+
+**Darfur Arabic**
+```
+t-u-r-u-g
+way-PL-way-PL-way
+ways
+```
+
+To avoid this behavior, you can change the gloss of one of the morphemes (ex: `PL^1` and `PL^2`).
 
 ### Literal Translation: `\lit`
 
