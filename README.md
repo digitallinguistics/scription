@@ -47,6 +47,7 @@ Cite this format using the following model:
   - [Literal Translation (`\lit`)](#literal-translation-lit)
   - [Free Translation (`\tln`)](#free-translation-tln)
   - [Note (`\n`)](#note-n)
+* [Emphasis](#emphasis)
 
 ## File Extension / Media Type
 
@@ -304,6 +305,38 @@ DWH: Is this utterance past tense or present tense?
 \n MM: I think this is plural.
 \n-swa Sentensi hii ni kuhusu bwana yule.
 ```
+
+## Emphasis
+
+Emphasis may be added on any lines containing linguistic data by adding asterisks (`*`) around the emphasized item or portion of the data:
+
+```
+*wax*dungu qasi
+*waxt*-qungu qasi
+*day*-one man
+one *day* a man
+```
+
+Information about emphasis is most useful when preparing specific pieces of data for publication. Because the location of emphasis needs to vary from example to example and publication to publication, authors should **not** mark up their original data with emphasis. Instead they should create a new scription file containing the examples to be used in the publication, and indicate emphasis there.
+
+For the following lines (utterance-level data), asterisks may occur anywhere in the data:
+
+- transcript (`\trs`)
+- phonemic transcription (`\txn`)
+- phonetic transcription (`\phon`)
+- literal translation (`\lit`)
+- free translation (`\tln`)
+
+For the following lines (word-level data), pairs of asterisks may only appear at word and morpheme boundaries. Asterisks placed elsewhere should be stripped from the data and ignored by parsers.
+
+- word transcription (`\w`)
+- morphemic analysis (`\w`)
+- glosses (`\gl`)
+- literal word translation (`wlt`)
+
+If an odd number of asterisks is found, they should be stripped from the data and ignored.
+
+Asterisks are for presentational purposes only, and parsers must **not** save asterisks as part of the linguistic data for the utterance. However, parsers may choose to utilize information about emphasis in other ways, or save that information in separate fields.
 
 [DaFoDiL]:       https://format.digitallinguistics.io/schemas/Text.html
 [example]:       https://github.com/digitallinguistics/scription/blob/master/example.txt
