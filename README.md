@@ -47,6 +47,7 @@ Cite this format using the following model:
   - [Literal Translation (`\lit`)](#literal-translation-lit)
   - [Free Translation (`\tln`)](#free-translation-tln)
   - [Note (`\n`)](#note-n)
+  - [Source (`\s`)](#source-s)
 * [Emphasis](#emphasis)
 
 ## File Extension / Media Type
@@ -305,6 +306,10 @@ DWH: Is this utterance past tense or present tense?
 \n MM: I think this is plural.
 \n-swa Sentensi hii ni kuhusu bwana yule.
 ```
+
+### Source (`\s`)
+
+The source line is used to indicate the bibliographic source of the utterance. This is most useful when the scription file consists of a collection of utterances from different texts or publications, as often happens when preparing a set of examples for typological publications. This line would typically be included immediately after an interlinear glossed example in a publication. It may only be in a single language.
 
 ## Emphasis
 
