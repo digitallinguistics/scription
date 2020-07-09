@@ -32,30 +32,30 @@ Cite this format using the following model:
 
 <!-- TOC -->
 
-- [File Extension / Media Type](#file-extension--media-type)
+- [File Extension / Media Type](#extension)
 - [Header](#header)
-- [Interlinear Gloss Schema](#interlinear-gloss-schema)
+- [Interlinear Gloss Schema](#schema)
 - [Utterances](#utterances)
 - [Lines](#lines)
-  - [Utterance Metadata: `#`](#utterance-metadata-)
-  - [Speaker: `\sp`](#speaker-\sp)
-  - [Transcript: `\trs`](#transcript-\trs)
-  - [Phonemic Transcription: `\txn`](#phonemic-transcription-\txn)
-  - [Phonetic Transcription: `\phon`](#phonetic-transcription-\phon)
-  - [Word Transcription: `\w`](#word-transcription-\w)
-  - [Morphemic Analysis: `\m`](#morphemic-analysis-\m)
-  - [Glosses: `\gl`](#glosses-\gl)
-  - [Literal Word Translation: `\wlt`](#literal-word-translation-\wlt)
-  - [Literal Translation: `\lit`](#literal-translation-\lit)
-  - [Free Translation: `\tln`](#free-translation-\tln)
-  - [Note: `\n`](#note-\n)
-  - [Source (`\s`)](#source-\s)
-  - [Time Duration (`\t`)](#time-duration-\t)
+  - [Utterance Metadata: `#`](#metadata)
+  - [Speaker: `\sp`](#speaker)
+  - [Transcript: `\trs`](#transcript)
+  - [Phonemic Transcription: `\txn`](#transcription)
+  - [Phonetic Transcription: `\phon`](#phonetic)
+  - [Word Transcription: `\w`](#word-transcription)
+  - [Morphemic Analysis: `\m`](#morphemes)
+  - [Glosses: `\gl`](#glosses)
+  - [Literal Word Translation: `\wlt`](#word-literal)
+  - [Literal Translation: `\lit`](#literal)
+  - [Free Translation: `\tln`](#translation)
+  - [Note: `\n`](#note)
+  - [Source (`\s`)](#source)
+  - [Time Duration (`\t`)](#duration)
 - [Emphasis](#emphasis)
 
 <!-- /TOC -->
 
-## File Extension / Media Type
+## File Extension / Media Type {#extension}
 
 Scription files should be treated as plain text files (`text/plain`) and given the `.txt` extension. Using other extensions such as `.scription` or `.text` is not recommended.
 
@@ -73,7 +73,7 @@ The header content should consist of metadata about the text, in [YAML format][Y
 
 If present, the header may not be empty. At a minimum, a `title` property is required.
 
-## Interlinear Gloss Schema
+## Interlinear Gloss Schema {#schema}
 
 Each text has an *interlinear gloss schema* that tells readers or parsers what each line in an utterance represents. The interlinear gloss schema is always inferred from the first utterance in the text. Subsequent utterances are then assumed to follow the same schema unless otherwise specified.
 
@@ -199,7 +199,7 @@ Words on a line may be grouped together using square brackets (`[ ]`). Multiple 
 \tln My name is John Smith.
 ```
 
-### Utterance Metadata: `#`
+### Utterance Metadata: `#` {#metadata}
 
 Each utterance may be preceded by a metadata line, beginning with a hash (`#`). This can be used to indicate the name of the language of that utterance, the language family, or other notes or metadata about the utterance. This is most useful when the scription text contains a collection of unrelated examples in different languages. An example of an utterance with a metadata line is shown below.
 
@@ -211,29 +211,29 @@ one day a man
 
 The format of the data contained within this line is unspecified. The behavior of parsers with respect to this line is undefined, except that parsers should not throw an error if this line is encountered. It is recommended that parsers ignore this line by default.
 
-### Speaker: `\sp`
+### Speaker: `\sp` {#speaker}
 
 This line consists of an abbreviation for the person who spoke the utterance, usually their initials. The speaker line may not be in multiple languages or writing systems. It may contain only the letters `a-z`, `A-Z`, and numbers `0-9`. No spaces are allowed. If you need to provide more details about a speaker, you can do so in the metadata header at the beginning of the text.
 
-### Transcript: `\trs`
+### Transcript: `\trs` {#transcript}
 
 A transcript of this utterance, including things like prosodic markup, overlap, pauses, and various other discourse features. The transcript may be in multiple orthographies or representational systems. For example, you might have a transcript in both Discourse Functional Transcription (DFT) and Conversation Analysis (CA) formats, which might be represented on two different lines as `\trs-dft` and `\trs-ca` respectively.
 
-### Phonemic Transcription: `\txn`
+### Phonemic Transcription: `\txn` {#transcription}
 
 A phonemic transcription of the utterance. Punctuation and capitalization should be avoided in this line. This line should not be broken into morphemes, and should not contain extra white space to align words (use the `\w` line for that instead). (Morpho)phonological sound changes should be represented in this line. In other words, this line serves as a phonemic transcription of the utterance as the speaker actually pronounced it. Do not include phonemic slashes (`/ /`) in this line.
 
 This line may be used with multiple orthographies. For example, a language which has a practical writing system may have both `\txn-practical` and `\txn-ipa`, to represent each utterance in both the practical orthography and in IPA. It is recommended but not required that orthography abbreviations be valid [ISO language tags][language-tag] (for example, `\txn-x-practical`). However, sometimes this is impractical or unreadable.
 
-### Phonetic Transcription: `\phon`
+### Phonetic Transcription: `\phon` {#phonetic}
 
 A phonetic transcription of the utterance. This transcription must be in IPA; it may not be used with multiple orthographies. Do not include phonetic brackets (`[ ]`) in this line.
 
-### Word Transcription: `\w`
+### Word Transcription: `\w` {#word-transcription}
 
 A phonemic transcription of each word in the utterance. This line may be in multiple orthographies. Words in this line are often separated by additional white space, to vertically align words. Otherwise, this line typically contains the same data as the utterance's phonemic transcription line (`\txn`). This line should not contain morpheme breakdowns (use the `\m` line instead). Do not include phonemic slashes (`/ /`) in this line.
 
-### Morphemic Analysis: `\m`
+### Morphemic Analysis: `\m` {#morphemes}
 
 This line shows the individual morphemes in an utterance, separated by hyphens, equal signs, or other symbols recognized as valid glossing symbols by the [Leipzig Glossing Rules][Leipzig]. Words may be separated by one or more white spaces or tabs (useful for aligning words vertically for readability). If this line is present, the glosses line (`gl`) must also be present. This line must contain the same number of words as the glosses line and the literal word translation line (if present). Each word within the utterance must also contain the same number of morphemes as the corresponding word in the glosses line.
 
@@ -241,7 +241,7 @@ The morphemes line may be represented in more than one orthography. For example,
 
 Data should be entered in this line using regular hyphens (U+2010) rather than non-breaking hyphens (U+2011), for ease of entry. Tools may replace regular hyphens with non-breaking hyphens for display purposes, but must not alter the original data by replacing the original, regular hyphens. If non-breaking hyphens are included in the data for this line, they must be treated as word characters rather than as morpheme separators or punctuation.
 
-### Glosses: `\gl`
+### Glosses: `\gl` {#glosses}
 
 This line shows the glosses for each morpheme in the morphemic analysis (`\m`) line, separated by hyphens, equal signs, or other symbols recognized as valid glossing symbols by the [Leipzig Glossing Rules][Leipzig]. Words may be separated by one or more white spaces or tabs (useful for aligning words vertically for readability). If this line is present, the morphemic analysis line must also be present. This line must contain the same number of words as the morphemic analysis line and the literal word translation line (if present). Each word within the utterance must also contain the same number of glosses as the corresponding word in the morphemic analysis line.
 
@@ -278,7 +278,7 @@ b<um>ili
 buy
 ```
 
-### Literal Word Translation: `\wlt`
+### Literal Word Translation: `\wlt` {#word-literal}
 
 A word-by-word literal translation of the utterance. Literal translations of each word must not contain white space; words within each translation may be separated by periods, hyphens, underscores, or other characters. This line must have the same number of words as the morphemic analysis and glosses lines. An example utterance with literal word translations is shown below.
 
@@ -289,15 +289,15 @@ A word-by-word literal translation of the utterance. Literal translations of eac
 \tln a pen/pencil
 ```
 
-### Literal Translation: `\lit`
+### Literal Translation: `\lit` {#literal}
 
 The literal translation for this utterance. Do not include brackets (`[ ]`) or quotes (`‘ ’`) around the data for this line, unless using quotes for reported speech. This line may be represented in multiple languages. For example, an utterance with a translation in both Spanish and English might have the lines `\tln-spa` and `\tln-eng`. Language abbreviations must be valid [ISO language tags][language-tag].
 
-### Free Translation: `\tln`
+### Free Translation: `\tln` {#translation}
 
 The free translation for this utterance. Do not include brackets (`[ ]`) or quotes (`‘ ’`) around the data for this line, unless using quotes for reported speech. This line may be represented in multiple languages. For example, an utterance with a translation in both Spanish and English might have the lines `\lit-spa` and `\lit-eng`. Language abbreviations must be valid [ISO language tags][language-tag].
 
-### Note: `\n`
+### Note: `\n` {#note}
 
 A note about this utterance. Note lines may be in multiple languages (ex: `\n-en` and `\n-es`). If the language is absent, parsers should assume that the language is English (`en`). The language tag, if present, must be a valid [ISO language tag][language-tag].
 
@@ -312,11 +312,11 @@ DWH: Is this utterance past tense or present tense?
 \n-swa Sentensi hii ni kuhusu bwana yule.
 ```
 
-### Source (`\s`)
+### Source (`\s`) {#source}
 
 The source line is used to indicate the bibliographic source of the utterance. This is most useful when the scription file consists of a collection of utterances from different texts or publications, as often happens when preparing a set of examples for typological publications. This line would typically be included immediately after an interlinear glossed example in a publication. It may only be in a single language.
 
-### Time Duration (`\t`)
+### Time Duration (`\t`) {#duration}
 
 The time duration line is used to indicate the start and end times of the utterance in an associated media recording. It must follow the format `SS.MMM-SS.MMM`, where `SS` = the start/end time in seconds, and `MMM` = the start/end time in milliseconds. The number before the hyphen indicates the start time, and the number after the hyphen indicates the end time. The hyphen may optionally be surrounded by spaces (e.g. `10.123 - 20.456`). The start and end times must be specified in seconds and milliseconds, not any other units or precision.
 
