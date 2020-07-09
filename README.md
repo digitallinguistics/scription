@@ -2,7 +2,7 @@
 
 [![GitHub release](https://img.shields.io/github/release/digitallinguistics/scription.svg)][releases]
 [![DOI](https://zenodo.org/badge/175884660.svg)][Zenodo]
-[![GitHub](https://img.shields.io/github/license/digitallinguistics/scription.svg)][license]
+[![license](https://img.shields.io/github/license/digitallinguistics/scription.svg)][license]
 [![GitHub stars](https://img.shields.io/github/stars/digitallinguistics/scription.svg?style=social)][GitHub]
 
 This document specifies a simple text format for representing linguistic texts as interlinear glossed examples. This format, known as _scription_ (a term coined by [Patrick J. Hall][Pat Hall] (University of California, Santa Barbara)), makes it easy to quickly enter data. It is easily read by humans, and easily converted to other formats used in documentary linguistics.
@@ -30,25 +30,29 @@ Cite this format using the following model:
 
 ## Contents
 
-* [File Extension / Media Type](#file-extension--media-type)
-* [Header](#header)
-* [Interlinear Gloss Schema](#interlinear-gloss-schema)
-* [Utterances](#utterances)
-* [Lines](#lines)
-  - [Utterance Metadata (`#`)](#utterance-metadata-)
-  - [Speaker (`\sp`)](#speaker-sp)
-  - [Transcript (`\trs`)](#transcript-trs)
-  - [Phonemic Transcription (Utterance) (`\txn`)](#phonemic-transcription-txn)
-  - [Phonetic Transcription (Utterance) (`\phon`)](#phonetic-transcription-phon)
-  - [Phonemic Transcription (Word) (`\w`)](#word-transcription-w)
-  - [Morphemic Analysis (`\m`)](#morphemic-analysis-m)
-  - [Glosses (`\gl`)](#glosses-gl)
-  - [Literal Word Translation (`\wlt`)](#literal-word-translation-wlt)
-  - [Literal Translation (`\lit`)](#literal-translation-lit)
-  - [Free Translation (`\tln`)](#free-translation-tln)
-  - [Note (`\n`)](#note-n)
-  - [Source (`\s`)](#source-s)
-* [Emphasis](#emphasis)
+<!-- TOC -->
+
+- [File Extension / Media Type](#file-extension--media-type)
+- [Header](#header)
+- [Interlinear Gloss Schema](#interlinear-gloss-schema)
+- [Utterances](#utterances)
+- [Lines](#lines)
+  - [Utterance Metadata: `#`](#utterance-metadata-)
+  - [Speaker: `\sp`](#speaker-\sp)
+  - [Transcript: `\trs`](#transcript-\trs)
+  - [Phonemic Transcription: `\txn`](#phonemic-transcription-\txn)
+  - [Phonetic Transcription: `\phon`](#phonetic-transcription-\phon)
+  - [Word Transcription: `\w`](#word-transcription-\w)
+  - [Morphemic Analysis: `\m`](#morphemic-analysis-\m)
+  - [Glosses: `\gl`](#glosses-\gl)
+  - [Literal Word Translation: `\wlt`](#literal-word-translation-\wlt)
+  - [Literal Translation: `\lit`](#literal-translation-\lit)
+  - [Free Translation: `\tln`](#free-translation-\tln)
+  - [Note: `\n`](#note-\n)
+  - [Source (`\s`)](#source-\s)
+- [Emphasis](#emphasis)
+
+<!-- /TOC -->
 
 ## File Extension / Media Type
 
@@ -311,6 +315,10 @@ DWH: Is this utterance past tense or present tense?
 
 The source line is used to indicate the bibliographic source of the utterance. This is most useful when the scription file consists of a collection of utterances from different texts or publications, as often happens when preparing a set of examples for typological publications. This line would typically be included immediately after an interlinear glossed example in a publication. It may only be in a single language.
 
+## Time Duration (`\t`)
+
+The time duration line is used to indicate the start and end times of the utterance in an associated media recording. It must follow the format `SS.MMM-SS.MMM`, where `SS` = the start/end time in seconds, and `MMM` = the start/end time in milliseconds. The number before the hyphen indicates the start time, and the number after the hyphen indicates the end time. The hyphen may optionally be surrounded by spaces (e.g. `10.123 - 20.456`). The start and end times must be specified in seconds and milliseconds, not any other units or precision.
+
 ## Emphasis
 
 Emphasis may be added on any lines containing linguistic data by adding asterisks (`*`) around the emphasized item or portion of the data:
@@ -342,6 +350,8 @@ For the following lines (word-level data), pairs of asterisks may only appear at
 If an odd number of asterisks is found, they should be stripped from the data and ignored.
 
 Asterisks are for presentational purposes only, and parsers must **not** save asterisks as part of the linguistic data for the utterance. However, parsers may choose to utilize information about emphasis in other ways, or save that information in separate fields.
+
+<!-- LINKS -->
 
 [DaFoDiL]:       https://format.digitallinguistics.io/schemas/Text.html
 [example]:       https://github.com/digitallinguistics/scription/blob/master/example.txt
