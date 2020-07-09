@@ -26,7 +26,7 @@ _**Note:** You may also be interested in the [`scription2dlx` JavaScript library
 
 Cite this format using the following model:
 
-> Hieber, Daniel W. 2019. digitallinguistics/scription. DOI:[10.5281/zenodo.2595548][Zenodo]
+> Hieber, Daniel W. 2012. digitallinguistics/scription. DOI:[10.5281/zenodo.2595548][Zenodo]
 
 ## Contents
 
@@ -50,6 +50,7 @@ Cite this format using the following model:
   - [Free Translation: `\tln`](#free-translation-\tln)
   - [Note: `\n`](#note-\n)
   - [Source (`\s`)](#source-\s)
+  - [Time Duration (`\t`)](#time-duration-\t)
 - [Emphasis](#emphasis)
 
 <!-- /TOC -->
@@ -315,7 +316,7 @@ DWH: Is this utterance past tense or present tense?
 
 The source line is used to indicate the bibliographic source of the utterance. This is most useful when the scription file consists of a collection of utterances from different texts or publications, as often happens when preparing a set of examples for typological publications. This line would typically be included immediately after an interlinear glossed example in a publication. It may only be in a single language.
 
-## Time Duration (`\t`)
+### Time Duration (`\t`)
 
 The time duration line is used to indicate the start and end times of the utterance in an associated media recording. It must follow the format `SS.MMM-SS.MMM`, where `SS` = the start/end time in seconds, and `MMM` = the start/end time in milliseconds. The number before the hyphen indicates the start time, and the number after the hyphen indicates the end time. The hyphen may optionally be surrounded by spaces (e.g. `10.123 - 20.456`). The start and end times must be specified in seconds and milliseconds, not any other units or precision.
 
