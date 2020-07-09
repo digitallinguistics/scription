@@ -120,7 +120,7 @@ Each backslash code must consist of a backslash `\`, followed immediately by the
   - `\txn-practical` - The phonemic transcription line, in the practical orthography for the language
   - `\tln-es` - The translation line, in Spanish
 
-If one line in an utterance includes a backslash code, all the other lines in that utterance must have one as well. Parsers should throw an error if they encounter an utterance where only some of the lines begin with backslash codes.
+If one line in an utterance includes a backslash code, all the other lines in that utterance must have one as well, with the exceptions that the metadata line never starts with a backslash code (it must always start with `#`), and that the note line may (optionally) always have a backslash code (`\n`) even if other lines do not. Barring these exceptions, parsers should throw an error if they encounter an utterance where only some of the lines begin with backslash codes.
 
 If an individual utterance in a text follows a different schema than the one specified in the first utterance, the user must indicate the function of each line by including the backslash code at the beginning of the line. This is most useful when a specific utterance requires an extra line in the interlinear gloss, for whatever reason.
 
