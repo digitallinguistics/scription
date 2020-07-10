@@ -1,6 +1,7 @@
 # Scription
 
 [![GitHub release](https://img.shields.io/github/release/digitallinguistics/scription.svg)][releases]
+[![GitHub issues](https://img.shields.io/github/issues/digitallinguistics/scription)](issues)
 [![DOI](https://zenodo.org/badge/175884660.svg)][Zenodo]
 [![license](https://img.shields.io/github/license/digitallinguistics/scription.svg)][license]
 [![GitHub stars](https://img.shields.io/github/stars/digitallinguistics/scription.svg?style=social)][GitHub]
@@ -51,6 +52,7 @@ Cite this format using the following model:
   - [Note: `\n`](#note)
   - [Source (`\s`)](#source)
   - [Time Duration (`\t`)](#duration)
+  - [Custom Lines](#custom)
 - [Emphasis](#emphasis)
 
 <!-- /TOC -->
@@ -117,7 +119,7 @@ An utterance with 4 lines is assumed to follow this schema:
 \tln
 ```
 
-The complete list of supported backslash codes is listed in the [Lines](#lines) section. If a backslash code appears more than once in a schema, each instance must have a language or orthography specified. (For example, an utterance with both `\tln-en` and `\tln-es` would be valid, but an utterance with `\tln` and `\tln-es` would not be valid.) Editors and parsers may support additional backslash codes, but other editors and parsers are not required to support them. Parsers which encounter invalid backslash codes should throw an error. When parsers encounter an undefined backslash code, however, they should not throw an error; parsers may either ignore the line, or attempt to process the data.
+The complete list of supported backslash codes is listed in the [Lines](#lines) section. If a backslash code appears more than once in a schema, each instance must have a language or orthography specified. (For example, an utterance with both `\tln-en` and `\tln-es` would be valid, but an utterance with `\tln` and `\tln-es` would not be valid.) Editors and parsers may support additional backslash codes, but other editors and parsers are not required to support them. Parsers which encounter invalid backslash codes should throw an error. When parsers encounter an undefined backslash code, however, they should not throw an error; parsers should pass through the data unchanged if possible, or ignore it otherwise.
 
 Each backslash code must consist of a backslash `\`, followed immediately by the code indicating the type of line (ex: `gl`, `txn`), and optionally a hyphen followed by an abbreviation or [ISO language tag][language-tag], depending on the line. Backslash codes may only contain basic alphanumeric characters (A-Z, a-z; no diacritics) and numbers (0-9). Some examples of backslash codes are below:
 
@@ -320,6 +322,10 @@ The source line is used to indicate the bibliographic source of the utterance. T
 
 The time duration line is used to indicate the start and end times of the utterance in an associated media recording. It must follow the format `SS.MMM-SS.MMM`, where `SS` = the start/end time in seconds, and `MMM` = the start/end time in milliseconds. The number before the hyphen indicates the start time, and the number after the hyphen indicates the end time. The hyphen may optionally be surrounded by spaces (e.g. `10.123 - 20.456`). The start and end times must be specified in seconds and milliseconds, not any other units or precision.
 
+### Custom Lines {#custom}
+
+Utterances may include line types that are not defined in this specification. When parsers encounter an undefined backslash code, they should not throw an error by default; parsers should ignore this line and if possible pass through the data unchanged.
+
 ## Emphasis
 
 Emphasis may be added on any lines containing linguistic data by adding asterisks (`*`) around the emphasized item or portion of the data:
@@ -357,6 +363,7 @@ Asterisks are for presentational purposes only, and parsers must **not** save as
 [DaFoDiL]:       https://format.digitallinguistics.io/schemas/Text.html
 [example]:       https://github.com/digitallinguistics/scription/blob/master/example.txt
 [GitHub]:        https://github.com/digitallinguistics/scription
+[issues]:        https://github.com/digitallinguistics/scription/issues
 [Leipzig]:       https://www.eva.mpg.de/lingua/resources/glossing-rules.php
 [language-tag]:  https://www.w3.org/International/articles/language-tags/
 [license]:       https://github.com/digitallinguistics/scription/blob/master/LICENSE.md
