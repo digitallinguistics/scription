@@ -312,11 +312,11 @@ DWH: Is this utterance past tense or present tense?
 \n-swa Sentensi hii ni kuhusu bwana yule.
 ```
 
-### Source (`\s`) {#source}
+### Source: `\s` {#source}
 
 The source line is used to indicate the bibliographic source of the utterance. This is most useful when the scription file consists of a collection of utterances from different texts or publications, as often happens when preparing a set of examples for typological publications. This line would typically be included immediately after an interlinear glossed example in a publication. It may only be in a single language.
 
-### Time Duration (`\t`) {#duration}
+### Time Duration: `\t` {#duration}
 
 The time duration line is used to indicate the start and end times of the utterance in an associated media recording. It must follow the format `SS.MMM-SS.MMM`, where `SS` = the start/end time in seconds, and `MMM` = the start/end time in milliseconds. The number before the hyphen indicates the start time, and the number after the hyphen indicates the end time. The hyphen may optionally be surrounded by spaces (e.g. `10.123 - 20.456`). The start and end times must be specified in seconds and milliseconds, not any other units or precision.
 
