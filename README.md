@@ -352,7 +352,7 @@ For the following lines (word-level data), pairs of asterisks may only appear at
 - word transcription (`\w`)
 - morphemic analysis (`\w`)
 - glosses (`\gl`)
-- literal word translation (`wlt`)
+- literal word translation (`\wlt`)
 
 If an odd number of asterisks is found, they should be stripped from the data and ignored.
 
