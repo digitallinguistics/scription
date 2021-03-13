@@ -50,8 +50,8 @@ Cite this format using the following model:
   - [Literal Translation: `\lit`](#literal)
   - [Free Translation: `\tln`](#translation)
   - [Note: `\n`](#note)
-  - [Source (`\s`)](#source)
-  - [Time Duration (`\t`)](#duration)
+  - [Source: `\s`](#source)
+  - [Time Duration: `\t`](#duration)
   - [Custom Lines](#custom)
 - [Emphasis](#emphasis)
 
