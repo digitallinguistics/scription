@@ -350,7 +350,7 @@ For the following lines (utterance-level data), asterisks may occur anywhere in 
 For the following lines (word-level data), pairs of asterisks may only appear at word and morpheme boundaries. Asterisks placed elsewhere should be stripped from the data and ignored by parsers.
 
 - word transcription (`\w`)
-- morphemic analysis (`\w`)
+- morphemic analysis (`\m`)
 - glosses (`\gl`)
 - literal word translation (`\wlt`)
 
